@@ -1,0 +1,47 @@
+﻿@model List<Account>
+@{
+    Layout = "_AdminLayout";
+}
+<h1>All accounts information</h1>
+<table class="table">
+    <tr class="bg-dark text-primary rounded">
+        <th>Account ID</th>
+        <th>Name</th>
+        <th>Fathers`s Name</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Active Order</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.accountId</td>
+            <td>@item.name</td>
+            <td>@item.fatherName</td>
+            <td>@item.age</td>
+            <td>@item.phone</td>
+            <td>@item.address</td>
+            <td>@item.email</td>
+            @{
+                if (@item.activeOrder==true)
+                {
+                    <td>Yes</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+            }
+            <td>
+                <a href="/RentOrder/GetOrderById/@item.accountId" class="btn btn-outline-primary">Show Order History</a>
+            </td>
+            <td>
+                <a href="/Account/DeleteById/@item.accountId" class="btn btn-outline-primary">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+

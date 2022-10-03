@@ -1,0 +1,57 @@
+﻿@model List<RentOrder>
+
+@{
+    Layout = "_AdminLayout";
+}
+<h2>Active Orders</h2>
+<table class="table">
+    <tr class="bg-dark text-primary rounded">
+           <th>Order Id</th>
+           <th>License No</th>
+           <th>Active</th>
+           <th>Date of Rent</th>
+           <th>Date of Return</th>
+    </tr>
+    @{
+    foreach(var order in Model)
+    {
+        if (order.isActive == true)
+        {
+            <tr>
+                <td>@order.orderId</td>
+                <td>@order.carId</td>
+                <td>Yes</td>
+                <td>@order.rentDate</td>
+                <td>@order.returnDate</td>
+            </tr>
+        }
+    }
+}
+</table>
+<br />
+<br />
+<h2>Closed Orders</h2>
+<table class="table">
+    <tr class="bg-dark text-primary rounded">
+           <th>Order Id</th>
+           <th>License No</th>
+           <th>Active</th>
+           <th>Date of Rent</th>
+           <th>Date of Return</th>
+    </tr>
+    @{
+    foreach(var order in Model)
+    {
+        if (order.isActive == false)
+        {
+            <tr>
+                <td>@order.orderId</td>
+                <td>@order.carId</td>
+                <td>No</td>
+                <td>@order.rentDate</td>
+                <td>@order.returnDate</td>
+            </tr>
+        }
+    }
+}
+</table>

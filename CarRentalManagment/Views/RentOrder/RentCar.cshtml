@@ -1,0 +1,52 @@
+﻿@model CarRentalManagment.Models.Car
+@{
+    Layout = "_AdminLayout";
+}
+<div class="col-12 row">
+    <table class="table col-5">
+
+    <tr class="bg-dark text-primary rounded">
+        <th>Car Details</th>
+    </tr>
+    <tr>
+        <td>
+            <strong><em>Car Id:</em></strong> @Model.carId
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong><em>Name:</em></strong> @Model.name
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong><em>License No:</em></strong> @Model.licNo
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong><em>Category:</em></strong> @Model.catagory
+        </td>
+    </tr>
+    </table>
+
+
+    <div class="col-5 rounded bg-dark text-primary mx-1">
+        <form class="m-2 " action="/RentOrder/RentCar" method="post">
+        
+
+            <div class="form-outine mb-4 text-left">
+                <label class="form-label" for="accId">Account Id: </label>
+                <input type="text" id="accId" name="accId" class="form-control" />
+            </div><br />
+           
+            <div class="form-outine mb-4 text-left">
+                <label class="form-label" for="returnDate">Return Date: </label>
+                <input type="date" id="returnDate" name="returnDate" class="form-control" />
+            </div><br />
+            <p class="txt-danger">@ViewBag.error</p><br />
+            <button type="submit" class="btn btn-primary btn-font-family">Rent Car</button>
+               
+    </form>
+    </div>
+</div>

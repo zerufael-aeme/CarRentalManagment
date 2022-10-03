@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null;
+}
+@model CarRentalManagment.Models.Account
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CarRentalManagment</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <style>
+        body{
+            background:linear-gradient(white,lightblue)
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="col-6 border-3 border-primary rounded text-primary text-center mx-auto mt-1 py-4" style="background-color:black">
+
+        <h1 class=""><u><em><strong>Sign Up</strong></em></u></h1><br />
+        <form class="col-9 mx-auto" action="/Account/SignUp" method="post">
+
+            <div class="form-outline mb-2 text-left">
+               <input asp-for="name" class="form-control" asp-validation-for="name" />
+               <label class="form-label" asp-for="name">Name:</label><br />
+               <span class="text-danger" asp-validation-for="name"></span>
+            </div>
+
+            <div class="form-outline mb-2 text-left">
+               <input asp-for="fatherName" class="form-control" />
+               <label class="form-label" asp-for="fatherName">Father`s Name:</label><br />
+               <span class="text-danger" asp-validation-for="fatherName"></span>
+            </div>
+
+            <div class="form-outline mb-2 text-left">
+               <input asp-for="age" class="form-control" />
+               <label class="form-label" asp-for="age">Age:</label><br />
+               <span class="text-danger" asp-validation-for="age"></span>
+            </div>
+
+            <div class="form-outline mb-2 text-left">
+               <input asp-for="phone" class="form-control" />
+               <label class="form-label" asp-for="phone">Phone Number:</label><br />
+               <span class="text-danger" asp-validation-for="phone"></span>
+            </div>
+
+            <div class="form-outline mb-2 text-left">
+               <input asp-for="email" class="form-control" />
+               <label class="form-label" asp-for="email">Email address:</label>
+            </div>
+
+            <div class="form-outline mb-2 text-left">
+               <input asp-for="address" class="form-control" />
+               <label class="form-label" asp-for="address">Address:</label><br />
+               <span class="text-danger" asp-validation-for="address"></span>
+            </div>
+
+            <div class="form-outline mb-2 text-left">
+               <input asp-for="password" type="password" class="form-control" />
+               <label class="form-label" asp-for="password">Password</label><br />
+               <span class="text-danger" asp-validation-for="password"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-font-family">Sign Up</button><br /><br />
+     
+        </form>
+    </div>
+</div>
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

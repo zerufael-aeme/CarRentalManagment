@@ -1,0 +1,72 @@
+﻿@model List<Car>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<table class="table">
+    <tr>
+        <td>Available City Cars</td>
+    </tr>
+    <tr class="bg-dark text-primary rounded">
+        <th>Name</th>
+        <th>License No</th>
+    </tr>
+    @{
+        foreach(var car in Model)
+        {
+            if (car.catagory == 1)
+            {
+                <tr>
+                <td>@car.name</td>
+                <td>@car.licNo</td>
+                <td><a href="/Account/BookCar/@car.carId" class="btn btn-primary">Book this car</a></td>
+                </tr>
+            }
+        }
+    }
+</table>
+<table class="table">
+    <tr>
+        <td>Available SUV`s</td>
+    </tr>
+    <tr class="bg-dark text-primary rounded">
+        <th>Name</th>
+        <th>License No</th>
+    </tr>
+    @{
+        foreach(var car in Model)
+        {
+            if (car.catagory == 2)
+            {
+                <tr>
+                <td>@car.name</td>
+                <td>@car.licNo</td>
+                <td><a href="/Account/BookCar/@car.carId" class="btn btn-primary">Book this car</a></td>
+                </tr>
+            }
+        }
+    }
+</table>
+
+<table class="table">
+    <tr>
+        <td>Available MiniVans</td>
+    </tr>
+    <tr class="bg-dark text-primary rounded">
+        <th>Name</th>
+        <th>License No</th>
+    </tr>
+    @{
+        foreach(var car in Model)
+        {
+            if (car.catagory == 3)
+            {
+                <tr>
+                <td>@car.name</td>
+                <td>@car.licNo</td>
+                <td><a href="/Account/BookCar/@car.carId" class="btn btn-primary">Book this car</a></td>
+                </tr>
+            }
+        }
+    }
+</table>
+

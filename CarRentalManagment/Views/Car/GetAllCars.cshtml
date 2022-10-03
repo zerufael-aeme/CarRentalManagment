@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model List<Car>
+
+<div class="container">
+   <div class="">
+      <table class="table">
+        <tr class="bg-dark text-primary rounded">
+            <th>Car Id</th>
+            <th>Catagory</th>
+            <th>Name</th>
+            <th>License No</th>
+            <th>Rented</th>
+            <th>Booked</th>
+            <th><a href="/Car/AddCar" class="btn btn-primary">Add a New Car</a></th>
+        </tr>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.carId</td>
+                    @{
+                        if (@item.catagory == 1)
+                        {
+                                <td>City Car</td>
+                        }else if (@item.catagory == 2)
+                        {
+                                <td>SUV</td>
+                        }else if (@item.catagory == 3)
+                        {
+                                <td>Off-Road</td>
+                        }
+                    }
+                <td>@item.name</td>
+                <td>@item.licNo</td>
+                @{
+                if (@item.isRented==true)
+                {
+                    <td>Rented</td>
+                }
+                else
+                {
+                    <td>Not Rented</td>
+                }
+                }
+                @{
+                if (@item.isBooked==true)
+                {
+                    <td>Booked</td>
+                }
+                else
+                {
+                    <td>Not Booked</td>
+                }
+                }
+                @{if (@item.isRented == false && @item.isBooked==false)
+                {
+                          <td>
+                                <a href="/RentOrder/RentCar/@item.carId" class="btn btn-outline-primary" > Rent Car</a>
+                          </td>    
+                }}
+                
+                <td>
+                    <a href="/Car/DeleteById/@item.carId" class="btn btn-outline-primary">Delete</a>
+                </td>
+                @{if (@item.isBooked == true)
+                {
+                                 <td>
+                                     <a href="/BookOrder/UnBook/@item.carId" class="btn btn-outline-primary">UnBook</a>
+                                 </td>
+                }}
+                    @{
+                        if (@item.isRented == true)
+                        {
+                            <td>
+                                 <a href="/RentOrder/ReturnCar/@item.carId" class="btn btn-outline-primary">Return</a>
+                             </td>
+                }}
+            </tr>
+        }
+      </table>
+   </div>
+</div>

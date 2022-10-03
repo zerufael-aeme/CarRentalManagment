@@ -1,0 +1,55 @@
+﻿@model List<BookOrder>
+@{
+    Layout = "_AdminLayout";
+}
+<h1>Book Orders</h1>
+<table class="table">
+    <tr class="bg-dark text-primary rounded">
+           <th>Book Id</th>
+           <th>Car ID</th>
+           <th>Account ID</th>
+           <th>Return Date</th>
+    </tr>
+    @{
+    foreach(var order in Model)
+    {
+        if (order.isActive == true)
+        {
+            <tr>
+                <td>@order.bookId</td>
+                <td>@order.carId</td>
+                <td>@order.accId</td>
+                <td>@order.bookDate</td>
+                <td><a href="/BookOrder/RentBookOrder/@order.bookId" class="btn btn-outline-primary">Rent</a></td>
+                <td><a href="/BookOrder/UnBookOrder/@order.accId" class="btn btn-outline-primary">UnBook</a></td>
+            </tr>
+        }
+    }
+}
+</table>
+<br />
+<br />
+<h2>Closed Orders</h2>
+<table class="table">
+    <tr class="bg-dark text-primary rounded">
+           <th>Book Id</th>
+           <th>Car ID</th>
+           <th>Account ID</th>
+           <th>Return Date</th>
+    </tr>
+    @{
+    foreach(var order in Model)
+    {
+        if (order.isActive == false)
+        {
+            <tr>
+                <td>@order.bookId</td>
+                <td>@order.carId</td>
+                <td>@order.accId</td>
+                <td>@order.bookDate</td>
+                
+            </tr>
+        }
+    }
+}
+</table>

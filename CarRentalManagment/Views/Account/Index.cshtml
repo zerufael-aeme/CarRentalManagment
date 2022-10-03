@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CarRentalManagment</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <style>
+        body{
+            background:linear-gradient(white,lightblue)
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="col-6 border-3 border-primary rounded text-primary text-center mx-auto mt-5 py-4" style="background-color:black">
+        <h1>ABC Car Rental</h1>
+        <h3 class=""><em><strong>Welcome, Let`s Get Started<br /> </strong></em></h3><br />
+        <form class="" action="/Account/Index" method="post">
+            <div class="form-outline mb-4 text-left">
+                <label class="form-label" for="id">ID: </label>
+                <input type="number" id="id" name="id" class="form-control" />
+            </div>
+           
+            <div class="form-outine mb-4 text-left">
+                <label class="form-label" for="password">Password: </label>
+                <input type="password" id="password" name="password" class="form-control" />
+            </div><br />
+            <p class="txt-danger">@ViewBag.error</p><br />
+               <button type="submit" class="btn btn-primary btn-font-family">Login</button><br /><br />
+               <a class="text-primary my-5"><em>Dont have an account?? Sign up here</em></a>
+        </form>
+    </div>
+</div>
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

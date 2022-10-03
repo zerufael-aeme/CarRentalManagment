@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model CarRentalManagment.Models.Car
+
+
+<div class="container">
+    <div class="col-8 border-3 border-primary rounded text-primary bg-dark">
+        <h3>Add new car information</h3>
+    <form class="col-9 m-auto" action="/Car/AddCar" method="post">
+
+            <div class="form-outline mb-2 text-left">
+               <input asp-for="name" class="form-control" asp-validation-for="name" />
+               <label class="form-label text-primary" asp-for="name">Name:</label><br />
+               <span class="text-danger" asp-validation-for="name"></span>
+            </div>
+
+            <div class="form-outline mb-4 text-left">
+               <input asp-for="licNo" class="form-control" />
+               <label class="form-label text-primary" asp-for="licNo">License No:</label><br />
+               <span class="text-danger" asp-validation-for="licNo"></span>
+            </div>
+
+            <div class="form-outline mb-2 text-left">
+               <input  type="number" asp-for="catagory" class="form-control" />
+               <label class="form-label text-primary" asp-for="catagory">Catagory:</label><br />
+               <span class="text-danger" asp-validation-for="catagory"></span>
+            </div><br />
+            <span>@ViewBag.error</span>
+            <button type="submit" class="btn btn-primary btn-font-family">Add Car</button><br />
+</form>
+</div>
+</div>

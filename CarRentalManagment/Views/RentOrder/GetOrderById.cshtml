@@ -1,0 +1,34 @@
+﻿@model List<RentOrder>
+@{
+    Layout = "_AdminLayout";
+}
+ <table class="table">
+        <tr><strong>@ViewBag.acc</strong></tr>
+        <tr class="bg-dark text-primary rounded">
+            <th>Order Id</th>
+            <th>License No</th>
+            <th>Active</th>
+            <th>Date of Rent</th>
+            <th>Date of Return</th>
+        </tr>
+        
+        @{foreach(var order in Model)
+        {
+            <tr>
+               <td>@order.orderId</td>
+               <td>@order.carId</td>
+                @{
+                    if (@order.isActive == true)
+                    {
+                        <td>Yes</td>
+                    }else if (@order.isActive == false)
+                    {
+                        <td>No</td>
+                    }
+                }
+                <td>@order.rentDate</td>
+                <td>@order.returnDate</td>
+            </tr>
+        }
+        }
+</table>
